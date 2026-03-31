@@ -3,14 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>New South Wales Police Force - Internal Portal</title>
+<title>New South Wales Police Force - Public Portal</title>
 <style>
-  /* ===== Reset ===== */
+  /* ===== Reset & Base ===== */
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #ffffff; color: #1f2937; line-height: 1.6; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #ffffff; color: #1f2937; line-height: 1.6; }
   a { color: #2563eb; text-decoration: none; transition: color 0.2s; }
   a:hover { color: #1d4ed8; }
-  h1, h2, h3 { color: #111827; }
 
   /* ===== Header ===== */
   header {
@@ -52,7 +51,7 @@
   }
   .hero button:hover { background-color: #1d4ed8; transform: scale(1.05); }
 
-  /* ===== Executive Leadership Section ===== */
+  /* ===== Executive Leadership ===== */
   .leadership {
     padding: 80px 50px 50px;
     background-color: #f9fafb;
@@ -76,7 +75,7 @@
   }
   .leader-card:hover { transform: translateY(-10px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
   .leader-card img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; }
-  .leader-card h3 { margin-bottom: 5px; }
+  .leader-card h3 { margin-bottom: 5px; font-size: 1.1rem; }
   .leader-card p { font-size: 0.95rem; color: #4b5563; }
 
   /* ===== Divisions Section ===== */
@@ -97,7 +96,7 @@
     transition: transform 0.3s, box-shadow 0.3s;
   }
   .division-card:hover { transform: translateY(-10px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
-  .division-card h3 { margin-bottom: 10px; color: #111827; }
+  .division-card h3 { margin-bottom: 10px; color: #111827; font-size: 1.1rem; }
   .division-card p { color: #4b5563; font-size: 0.95rem; }
 
   /* ===== Footer ===== */
@@ -122,98 +121,96 @@
     <div class="logo">New South Wales Police Force</div>
     <nav>
       <a href="#">Home</a>
-      <a href="#">Executive Leadership</a>
-      <a href="#">Divisions</a>
-      <a href="#">Contact</a>
+      <a href="#leadership">Executive Leadership</a>
+      <a href="#divisions">Divisions</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <!-- ===== Hero Section ===== -->
   <section class="hero">
-    <h1>Welcome to the New South Wales Police Force Internal Portal</h1>
-    <p>This portal provides authorised personnel with access to executive information, divisions, procedures, and operational systems.</p>
-    <button id="noticeBtn">Important Notice</button>
+    <h1>Welcome to the New South Wales Police Force</h1>
+    <p>Serving the community with integrity, professionalism, and commitment to public safety across New South Wales.</p>
+    <button id="noticeBtn">Learn More</button>
   </section>
 
   <!-- ===== Executive Leadership ===== -->
-  <section class="leadership">
+  <section class="leadership" id="leadership">
     <h2>Executive Leadership Team</h2>
     <div class="leaders">
       <div class="leader-card">
-        <img src="https://via.placeholder.com/100" alt="Commissioner">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/NSW_Police_badge.png/100px-NSW_Police_badge.png" alt="Commissioner">
         <h3>Commissioner of Police</h3>
-        <p>Responsible for overall command, strategic direction, and leadership of the NSW Police Force.</p>
+        <p>Responsible for the overall leadership and strategic direction of the NSW Police Force.</p>
       </div>
       <div class="leader-card">
-        <img src="https://via.placeholder.com/100" alt="Deputy Commissioner">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/NSW_Police_badge.png/100px-NSW_Police_badge.png" alt="Deputy Commissioner">
         <h3>Deputy Commissioner</h3>
-        <p>Supports the Commissioner and oversees daily operations across all commands and divisions.</p>
+        <p>Oversees day-to-day operations and supports the Commissioner in all strategic matters.</p>
       </div>
       <div class="leader-card">
-        <img src="https://via.placeholder.com/100" alt="Assistant Commissioner Metropolitan Field Operations">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/NSW_Police_badge.png/100px-NSW_Police_badge.png" alt="Assistant Commissioner Metropolitan Field Operations">
         <h3>Assistant Commissioner - Metropolitan Field Operations</h3>
-        <p>Manages metropolitan policing, patrols, and operational resources across Sydney and surrounding areas.</p>
+        <p>Manages policing operations across metropolitan Sydney, including frontline patrols and community safety.</p>
       </div>
       <div class="leader-card">
-        <img src="https://via.placeholder.com/100" alt="Assistant Commissioner Investigations & Counter Terrorism">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/NSW_Police_badge.png/100px-NSW_Police_badge.png" alt="Assistant Commissioner Investigations & Counter Terrorism">
         <h3>Assistant Commissioner - Investigations & Counter Terrorism</h3>
-        <p>Leads criminal investigations, intelligence gathering, and counter-terrorism initiatives across the state.</p>
+        <p>Leads criminal investigations, counter-terrorism initiatives, and intelligence operations.</p>
       </div>
       <div class="leader-card">
-        <img src="https://via.placeholder.com/100" alt="Assistant Commissioner People & Capability Command">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/NSW_Police_badge.png/100px-NSW_Police_badge.png" alt="Assistant Commissioner People & Capability Command">
         <h3>Assistant Commissioner - People & Capability Command</h3>
-        <p>Oversees workforce management, training, recruitment, and professional development for all NSW Police personnel.</p>
+        <p>Responsible for recruitment, training, workforce management, and professional development.</p>
       </div>
     </div>
   </section>
 
   <!-- ===== Divisions ===== -->
-  <section class="divisions">
+  <section class="divisions" id="divisions">
     <h2>Divisions and Their Functions</h2>
     <div class="division-cards">
       <div class="division-card">
         <h3>General Duties</h3>
-        <p>Frontline police services, community engagement, and day-to-day law enforcement activities across all regions.</p>
+        <p>Frontline police providing community safety, crime prevention, and everyday law enforcement across NSW.</p>
       </div>
       <div class="division-card">
         <h3>Highway Patrol</h3>
-        <p>Ensures safety on major roads, enforces traffic laws, and responds to road incidents across New South Wales.</p>
+        <p>Responsible for road safety, traffic law enforcement, and responding to incidents on major highways and roads.</p>
       </div>
       <div class="division-card">
         <h3>State Crime Command</h3>
-        <p>Investigates serious and organised crime, provides specialist investigative support to regional and metropolitan areas.</p>
+        <p>Investigates serious, organised, and complex crimes with specialist teams and resources.</p>
       </div>
       <div class="division-card">
         <h3>Public Order and Riot Squad</h3>
-        <p>Specialised response unit for crowd control, riots, protests, and high-risk public order events.</p>
+        <p>Specialised unit for managing large-scale public order events, protests, and riots.</p>
       </div>
       <div class="division-card">
         <h3>Tactical Operations Unit</h3>
-        <p>Handles critical incidents, armed offenders, hostage situations, and high-risk operations.</p>
+        <p>Responds to critical incidents including armed offenders, hostage situations, and high-risk operations.</p>
       </div>
       <div class="division-card">
         <h3>Professional Standards Command</h3>
-        <p>Monitors compliance, investigates complaints against police, and ensures integrity and accountability within the force.</p>
+        <p>Ensures integrity, accountability, and public confidence through investigations of complaints and misconduct.</p>
       </div>
       <div class="division-card">
         <h3>Education and Training Command</h3>
-        <p>Delivers police training programs, professional development, and continuous learning initiatives for officers.</p>
+        <p>Delivers police education, professional development, and continuous training programs for officers.</p>
       </div>
     </div>
   </section>
 
   <!-- ===== Footer ===== -->
-  <footer>
-    © New South Wales Police Force 2026. Internal Use Only.
+  <footer id="contact">
+    © New South Wales Police Force 2026. Public Information Portal.
   </footer>
 
   <!-- ===== JS ===== -->
   <script>
-    // Important notice button
     document.getElementById("noticeBtn").addEventListener("click", () => {
-      alert("⚠️ This portal contains sensitive information intended for authorised NSW Police Force personnel only.");
+      alert("Welcome to the public NSW Police Force portal. Explore our leadership, divisions, and public services.");
     });
   </script>
-
 </body>
 </html>
