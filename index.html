@@ -14,37 +14,53 @@ body {
   color: #fff;
 }
 
-/* Header */
 header {
   margin: 20px;
-  padding: 16px 30px;
+  padding: 14px 28px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.25);
   border-radius: 1000px;
-  box-shadow: 0 0 16px rgba(0,0,0,0.2);
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
-.logo {
-  font-weight: 700;
-  font-size: 1.3rem;
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-img {
+  height: 34px;
+}
+
+.logo-text {
+  font-weight: 600;
+  font-size: 1.1rem;
+  line-height: 1.1;
+}
+
+.logo-text span {
+  font-size: 0.7rem;
+  opacity: 0.7;
+  display: block;
 }
 
 nav a {
   color: #fff;
   text-decoration: none;
-  margin: 0 12px;
+  margin: 0 10px;
   padding: 6px 14px;
   border-radius: 1000px;
   transition: 0.2s;
 }
 nav a:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.12);
 }
 
 .login-btn {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.12);
   padding: 6px 16px;
   border-radius: 1000px;
   color: #fff;
@@ -52,48 +68,82 @@ nav a:hover {
   transition: 0.2s;
 }
 .login-btn:hover {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.25);
 }
 
-/* Sections */
+.hero {
+  margin: 0 20px;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  filter: brightness(0.6);
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50px;
+  transform: translateY(-50%);
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 2.2rem;
+}
+
+.hero p {
+  margin-top: 10px;
+  max-width: 500px;
+  opacity: 0.85;
+}
+
 section {
   padding: 60px 50px;
 }
 
-h2 {
-  margin-bottom: 20px;
-}
-
-/* Cards */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
 }
 
 .card {
-  background: rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.25);
   border-radius: 24px;
-  padding: 24px;
-  box-shadow: 0 0 16px rgba(0,0,0,0.2);
-  transition: 0.2s;
+  overflow: hidden;
+  box-shadow: 0 0 16px rgba(0,0,0,0.3);
+  transition: 0.25s;
 }
 
 .card:hover {
   background: rgba(0,0,0,0.4);
-  box-shadow: 0 0 16px rgba(0,0,0,0.4);
+  transform: translateY(-4px);
 }
 
-.card h3 {
-  margin-top: 0;
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
 }
 
-/* Footer */
+.card-content {
+  padding: 18px 20px;
+}
+
+.card h3 { margin: 0 0 8px; }
+.card p { opacity: 0.8; font-size: 0.9rem; }
+
 footer {
   margin: 20px;
   padding: 20px;
   text-align: center;
-  background: rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.25);
   border-radius: 24px;
 }
 
@@ -102,50 +152,59 @@ footer {
 <body>
 
 <header>
-  <div class="logo">NSW Police Force<br><small style="font-size:0.7rem; opacity:0.7;">Public Portal</small></div>
+  <div class="logo-wrap">
+    <img src="https://i.ibb.co/N6MwLQk0/image.webp" class="logo-img">
+    <div class="logo-text">
+      NSW Police Force
+      <span>Public Portal</span>
+    </div>
+  </div>
+
   <nav>
     <a href="#">Home</a>
     <a href="#leadership">Leadership</a>
     <a href="#divisions">Divisions</a>
     <a href="#mission">Mission</a>
   </nav>
+
   <div id="userInfo">
     <a href="/login" class="login-btn">Login</a>
   </div>
 </header>
 
-<section>
-  <h2>Overview</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>About NSWPF</h3>
-      <p>The NSW Police Force is responsible for law enforcement, crime prevention, and community safety across New South Wales.</p>
-    </div>
-    <div class="card">
-      <h3>Community Focus</h3>
-      <p>We prioritise community engagement, transparency, and proactive policing strategies.</p>
-    </div>
-    <div class="card">
-      <h3>Operations</h3>
-      <p>Our operations span metropolitan, regional, and specialist commands.</p>
-    </div>
+<div class="hero">
+  <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789" alt="NSW Police">
+  <div class="hero-content">
+    <h1>Serving the Community</h1>
+    <p>Delivering professional policing services to protect life and property across New South Wales.</p>
   </div>
-</section>
+</div>
 
 <section id="leadership">
   <h2>Executive Leadership</h2>
   <div class="grid">
     <div class="card">
-      <h3>Commissioner</h3>
-      <p>Leads the NSW Police Force and oversees all operations.</p>
+      <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e">
+      <div class="card-content">
+        <h3>Commissioner</h3>
+        <p>Leads the organisation and oversees all operations.</p>
+      </div>
     </div>
+
     <div class="card">
-      <h3>Deputy Commissioner</h3>
-      <p>Supports leadership and manages strategic operations.</p>
+      <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df">
+      <div class="card-content">
+        <h3>Deputy Commissioner</h3>
+        <p>Supports strategic and operational leadership.</p>
+      </div>
     </div>
+
     <div class="card">
-      <h3>Assistant Commissioners</h3>
-      <p>Lead major commands and operational branches.</p>
+      <img src="https://images.unsplash.com/photo-1520975922323-8b456906c813">
+      <div class="card-content">
+        <h3>Assistant Commissioners</h3>
+        <p>Lead major commands and specialist areas.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -154,16 +213,27 @@ footer {
   <h2>Policing Divisions</h2>
   <div class="grid">
     <div class="card">
-      <h3>Metropolitan Operations</h3>
-      <p>Handles policing across Sydney metropolitan areas.</p>
+      <img src="https://images.unsplash.com/photo-1549924231-f129b911e442">
+      <div class="card-content">
+        <h3>Metropolitan Operations</h3>
+        <p>Frontline policing across Sydney.</p>
+      </div>
     </div>
+
     <div class="card">
-      <h3>Regional Commands</h3>
-      <p>Provides policing services across regional NSW.</p>
+      <img src="https://images.unsplash.com/photo-1502920917128-1aa500764ce7">
+      <div class="card-content">
+        <h3>Regional Commands</h3>
+        <p>Servicing regional and rural NSW communities.</p>
+      </div>
     </div>
+
     <div class="card">
-      <h3>Specialist Units</h3>
-      <p>Includes counter-terrorism, investigations, and tactical response.</p>
+      <img src="https://images.unsplash.com/photo-1555375771-14b81c8f3c7e">
+      <div class="card-content">
+        <h3>Specialist Units</h3>
+        <p>Tactical, investigative, and counter-terrorism units.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -172,16 +242,24 @@ footer {
   <h2>Mission & Values</h2>
   <div class="grid">
     <div class="card">
-      <h3>Integrity</h3>
-      <p>Acting with honesty and accountability.</p>
+      <div class="card-content">
+        <h3>Integrity</h3>
+        <p>Acting with honesty and accountability.</p>
+      </div>
     </div>
+
     <div class="card">
-      <h3>Professionalism</h3>
-      <p>Maintaining the highest standards in policing.</p>
+      <div class="card-content">
+        <h3>Professionalism</h3>
+        <p>Maintaining the highest standards.</p>
+      </div>
     </div>
+
     <div class="card">
-      <h3>Community</h3>
-      <p>Building trust and partnerships with the public.</p>
+      <div class="card-content">
+        <h3>Community</h3>
+        <p>Building trust with the public.</p>
+      </div>
     </div>
   </div>
 </section>
