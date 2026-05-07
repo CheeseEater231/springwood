@@ -24,7 +24,6 @@
     --blue:#5ab0ff;
     --blue2:#89cbff;
     --line:rgba(255,255,255,0.07);
-    --shadow:0 40px 100px rgba(0,0,0,0.45);
 }
 
 *{
@@ -33,13 +32,11 @@
     box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth;}
 
 body{
     font-family:'Inter',sans-serif;
-    background:linear-gradient(to bottom, #04070d, #07111b);
+    background:linear-gradient(to bottom,#04070d,#07111b);
     color:white;
     overflow-x:hidden;
     animation:pageFade 1s ease;
@@ -73,18 +70,7 @@ body{
     z-index:-5;
 }
 
-.glow-bottom{
-    position:fixed;
-    width:700px;
-    height:700px;
-    bottom:-250px;
-    left:-250px;
-    background:radial-gradient(circle, rgba(137,203,255,0.1), transparent 70%);
-    filter:blur(60px);
-    z-index:-5;
-}
-
-/* DISCORD BUTTON */
+/* DISCORD */
 
 .discord-btn{
     position:fixed;
@@ -96,35 +82,30 @@ body{
     gap:10px;
 
     padding:12px 16px;
-
     border-radius:14px;
 
     background:rgba(255,255,255,0.03);
     border:1px solid rgba(255,255,255,0.08);
 
     backdrop-filter:blur(14px);
-
     color:#d8e8ff;
-    text-decoration:none;
 
+    text-decoration:none;
     font-size:13px;
     font-weight:700;
 
     z-index:9999;
-
     transition:0.3s;
 }
 
 .discord-btn img{
     width:20px;
     height:20px;
-    object-fit:contain;
 }
 
 .discord-btn:hover{
     transform:translateY(-3px);
     background:rgba(90,176,255,0.15);
-    border-color:rgba(90,176,255,0.35);
 }
 
 /* HERO */
@@ -136,35 +117,10 @@ body{
     align-items:center;
     text-align:center;
     padding:120px 7%;
-    position:relative;
-}
-
-.hero-content{
-    max-width:1450px;
-}
-
-.hero-badge{
-    display:inline-flex;
-    align-items:center;
-    gap:12px;
-    padding:12px 20px;
-    border-radius:999px;
-    border:1px solid rgba(255,255,255,0.08);
-    background:rgba(255,255,255,0.03);
-    backdrop-filter:blur(14px);
-    margin-bottom:38px;
-    color:#d8e8ff;
-    font-size:13px;
-    font-weight:600;
-}
-
-.hero-badge img{
-    width:22px;
-    height:22px;
 }
 
 .hero h1{
-    font-size:clamp(70px, 9vw, 170px);
+    font-size:clamp(70px,9vw,170px);
     line-height:0.88;
     letter-spacing:-7px;
     font-weight:900;
@@ -183,63 +139,17 @@ body{
     color:var(--muted);
     font-size:20px;
     line-height:1.9;
-    margin-bottom:55px;
-}
-
-.hero-buttons{
-    display:flex;
-    justify-content:center;
-    gap:18px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    padding:18px 34px;
-    border-radius:18px;
-    text-decoration:none;
-    font-weight:700;
-    transition:0.35s;
-}
-
-.btn-primary{
-    background:linear-gradient(135deg,var(--blue),#78c4ff);
-    color:#06111c;
-}
-
-.btn-primary:hover{
-    transform:translateY(-5px);
-}
-
-.btn-secondary{
-    border:1px solid rgba(255,255,255,0.08);
-    background:rgba(255,255,255,0.03);
-    color:white;
-}
-
-.btn-secondary:hover{
-    background:rgba(255,255,255,0.06);
 }
 
 /* SECTION */
 
 .section{
-    padding:170px 7%;
-}
-
-.fade{
-    opacity:0;
-    transform:translateY(90px);
-    transition:1.2s ease;
-}
-
-.fade.visible{
-    opacity:1;
-    transform:translateY(0);
+    padding:160px 7%;
 }
 
 .section-heading{
     text-align:center;
-    margin-bottom:90px;
+    margin-bottom:80px;
 }
 
 .section-heading span{
@@ -254,7 +164,8 @@ body{
     line-height:0.95;
     letter-spacing:-4px;
     margin-top:22px;
-    margin-bottom:28px;
+    margin-bottom:20px;
+    text-align:center; /* FIXED */
 }
 
 .section-heading p{
@@ -263,6 +174,7 @@ body{
     color:var(--muted);
     font-size:18px;
     line-height:1.9;
+    text-align:center;
 }
 
 /* DEPARTMENTS */
@@ -271,7 +183,6 @@ body{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:30px;
-    margin-top:100px;
 }
 
 .department{
@@ -303,7 +214,7 @@ body{
     line-height:1.9;
 }
 
-/* SLIDER */
+/* SLIDER FIX */
 
 .slider{
     max-width:1100px;
@@ -326,10 +237,12 @@ body{
     display:flex;
     justify-content:space-between;
     transform:translateY(-50%);
+    pointer-events:none;
 }
 
 .slider-btn{
-    background:rgba(0,0,0,0.4);
+    pointer-events:auto;
+    background:rgba(0,0,0,0.5);
     border:1px solid rgba(255,255,255,0.15);
     color:white;
     padding:14px 18px;
@@ -337,22 +250,24 @@ body{
     cursor:pointer;
 }
 
-/* END */
+/* END FIX */
 
 .end{
     padding:220px 7%;
-    text-align:center;
+    text-align:center; /* FIXED CENTER */
 }
 
 .end h2{
     font-size:clamp(60px,8vw,145px);
     letter-spacing:-6px;
     margin-bottom:34px;
+    text-align:center; /* FIXED */
 }
 
 .end p{
     color:var(--muted);
     font-size:20px;
+    text-align:center;
 }
 
 /* FOOTER */
@@ -376,7 +291,6 @@ footer p{
 
 <div class="grid"></div>
 <div class="glow-top"></div>
-<div class="glow-bottom"></div>
 
 <a class="discord-btn" href="https://discord.gg/coastline" target="_blank">
     <img src="assets/images/discord.png">
@@ -385,99 +299,82 @@ footer p{
 
 <section class="hero">
 
-<div class="hero-content">
-
-    <div class="hero-badge">
-        <img src="assets/images/coastline.png">
-        Coastline Group
+    <div>
+        <h1>SPRINGWOOD <br><span>NEW SOUTH WALES</span></h1>
+        <p>
+            This Roblox experience lets you roleplay as emergency services, live as a civilian, or get involved in crime, all within a realistic Australian town environment.
+        </p>
     </div>
-
-    <h1>SPRINGWOOD <br><span>NEW SOUTH WALES</span></h1>
-
-    <p>
-        This Roblox experience lets you roleplay as emergency services, live as a civilian, or get involved in crime, all within a simple, realistic Australian town environment.
-    </p>
-
-</div>
 
 </section>
 
-<section class="section fade">
+<section class="section">
 
-<div class="section-heading">
-    <span>DEPARTMENTS</span>
-    <h2>Organisations On Offer</h2>
-    <p>We offer multiple emergency service organisations with different divisions, giving you access to a range of roles and higher level involvement across Springwood.</p>
-</div>
-
-<div class="departments">
-
-    <div class="department">
-        <div class="department-top">
-            <img src="assets/images/nswpf.png">
-            <h4>New South Wales Police Force</h4>
-        </div>
-        <p>Handles law enforcement, traffic control, and major incident response.</p>
+    <div class="section-heading">
+        <span>DEPARTMENTS</span>
+        <h2>Organisations On Offer</h2>
+        <p>We offer multiple emergency service organisations with different divisions, giving you access to a range of roles and higher level involvement across Springwood.</p>
     </div>
 
-    <div class="department">
-        <div class="department-top">
-            <img src="assets/images/nswa.png">
-            <h4>New South Wales Ambulance</h4>
-        </div>
-        <p>Provides emergency medical care and patient transport across all incidents.</p>
-    </div>
+    <div class="departments">
 
-    <div class="department">
-        <div class="department-top">
-            <img src="assets/images/frnsw.png">
-            <h4>Fire And Rescue New South Wales</h4>
+        <div class="department">
+            <div class="department-top">
+                <img src="assets/images/nswpf.png">
+                <h4>New South Wales Police Force</h4>
+            </div>
+            <p>Handles law enforcement, traffic control, and major incident response.</p>
         </div>
-        <p>Responds to fires, rescues, and hazardous incidents throughout the region.</p>
-    </div>
 
-    <div class="department">
-        <div class="department-top">
-            <img src="assets/images/tnsw.png">
-            <h4>Transport For New South Wales</h4>
+        <div class="department">
+            <div class="department-top">
+                <img src="assets/images/nswa.png">
+                <h4>New South Wales Ambulance</h4>
+            </div>
+            <p>Provides emergency medical care and patient transport.</p>
         </div>
-        <p>Manages transport infrastructure, rail operations, and public network movement.</p>
-    </div>
 
-</div>
+        <div class="department">
+            <div class="department-top">
+                <img src="assets/images/frnsw.png">
+                <h4>Fire And Rescue New South Wales</h4>
+            </div>
+            <p>Responds to fires, rescues, and hazardous incidents.</p>
+        </div>
+
+        <div class="department">
+            <div class="department-top">
+                <img src="assets/images/tnsw.png">
+                <h4>Transport For New South Wales</h4>
+            </div>
+            <p>Manages transport infrastructure and operations.</p>
+        </div>
+
+    </div>
 
 </section>
 
-<section class="parallax">
-<img src="assets/images/teaser4.png">
-<div class="parallax-content">
-    <h2>DESIGNED TO FEEL <br> LIKE AUSTRALIA</h2>
-</div>
-</section>
+<section class="section">
 
-<section class="section fade">
-
-<div class="section-heading">
-    <span>TEASERS</span>
-    <h2>Early Screenshots</h2>
-</div>
-
-<div class="slider">
-
-    <img id="slideImage" src="assets/images/teaser1.png">
-
-    <div class="slider-controls">
-        <button class="slider-btn" onclick="prevSlide()">‹</button>
-        <button class="slider-btn" onclick="nextSlide()">›</button>
+    <div class="section-heading">
+        <span>TEASERS</span>
+        <h2>Early Screenshots</h2>
     </div>
 
-</div>
+    <div class="slider">
+        <img id="slideImage" src="assets/images/teaser1.png">
+
+        <div class="slider-controls">
+            <button class="slider-btn" onclick="prevSlide()">‹</button>
+            <button class="slider-btn" onclick="nextSlide()">›</button>
+        </div>
+    </div>
 
 </section>
 
 <section class="end">
-<h2>SPRINGWOOD <br> IS COMING.</h2>
-<p>Developed by the Coastline Group</p>
+    <h2>SPRINGWOOD <br> IS COMING.</h2>
+    <p>Developed by the Coastline Group</p>
 </section>
 
 <footer>
@@ -485,14 +382,6 @@ footer p{
 </footer>
 
 <script>
-
-const observer=new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-        if(e.isIntersecting)e.target.classList.add("visible");
-    });
-},{threshold:0.15});
-
-document.querySelectorAll(".fade").forEach(e=>observer.observe(e));
 
 const images=[
 "assets/images/teaser1.png",
