@@ -62,7 +62,7 @@ body{
     gap:10px;
     padding:12px 16px;
     border-radius:14px;
-    background:rgba(255,255,255,0.03);
+    background:rgba(255,255,255,0.04);
     border:1px solid rgba(255,255,255,0.08);
     backdrop-filter:blur(14px);
     color:#d8e8ff;
@@ -70,6 +70,12 @@ body{
     font-size:13px;
     font-weight:700;
     z-index:9999;
+    transition:.25s;
+}
+
+.discord-btn:hover{
+    transform:translateY(-2px);
+    background:rgba(255,255,255,0.07);
 }
 
 .discord-btn img{
@@ -80,13 +86,49 @@ body{
 /* HERO */
 
 .hero{
+    position:relative;
     min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
     padding:120px 7%;
+    overflow:hidden;
 }
+
+/* BACKGROUND SLIDES */
+
+.hero-slider{
+    position:absolute;
+    inset:0;
+    z-index:-2;
+}
+
+.hero-slide{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0;
+    transition:opacity 1.8s ease;
+    transform:scale(1.04);
+}
+
+.hero-slide.active{
+    opacity:0.28;
+}
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(to bottom, rgba(4,7,13,0.3), rgba(4,7,13,0.85)),
+    radial-gradient(circle at center, rgba(10,40,70,0.15), transparent 60%);
+    z-index:-1;
+}
+
+/* HERO CONTENT */
 
 .hero-badge{
     display:inline-flex;
@@ -99,6 +141,7 @@ body{
     margin-bottom:35px;
     font-size:13px;
     font-weight:600;
+    backdrop-filter:blur(10px);
 }
 
 .hero-badge img{
@@ -123,9 +166,122 @@ body{
 .hero p{
     max-width:900px;
     margin:auto;
-    color:var(--muted);
+    color:#d2dbe7;
     font-size:19px;
     line-height:1.8;
+}
+
+/* EXPLORE BUTTON */
+
+.hero-actions{
+    margin-top:40px;
+}
+
+.explore-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    padding:16px 28px;
+    border-radius:18px;
+    background:white;
+    color:#07111b;
+    text-decoration:none;
+    font-weight:800;
+    font-size:15px;
+    transition:.3s;
+}
+
+.explore-btn:hover{
+    transform:translateY(-3px);
+}
+
+/* THUMBNAILS */
+
+.hero-controls{
+    position:absolute;
+    bottom:110px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.thumb{
+    width:72px;
+    height:46px;
+    object-fit:cover;
+    border-radius:12px;
+    opacity:.45;
+    cursor:pointer;
+    transition:.35s;
+    border:2px solid transparent;
+}
+
+.thumb.active{
+    width:105px;
+    height:60px;
+    opacity:1;
+    border-color:white;
+}
+
+.arrow{
+    width:50px;
+    height:50px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,0.15);
+    background:rgba(255,255,255,0.05);
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.arrow:hover{
+    background:rgba(255,255,255,0.12);
+}
+
+/* SCROLL */
+
+.scroll-indicator{
+    position:absolute;
+    bottom:30px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    color:#c9d8e9;
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.mouse{
+    width:26px;
+    height:42px;
+    border:2px solid rgba(255,255,255,0.5);
+    border-radius:20px;
+    position:relative;
+}
+
+.mouse::before{
+    content:'';
+    position:absolute;
+    width:5px;
+    height:9px;
+    border-radius:20px;
+    background:white;
+    left:50%;
+    top:8px;
+    transform:translateX(-50%);
+    animation:scroll 1.6s infinite;
+}
+
+@keyframes scroll{
+    0%{ opacity:1; top:8px; }
+    100%{ opacity:0; top:20px; }
 }
 
 /* SECTION */
@@ -138,21 +294,27 @@ body{
     text-align:center;
 }
 
-/* COASTLINE LINE */
+/* FADE IN */
 
-.sub-logo{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:12px;
-    margin-bottom:18px;
-    font-weight:700;
-    color:#d8e8ff;
+.fade{
+    opacity:0;
+    transform:translateY(45px);
+    transition:1s ease;
 }
 
-.sub-logo img{
-    width:24px;
-    height:24px;
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* AUSTRALIA */
+
+.big-title{
+    text-align:center;
+    font-size:clamp(50px,7vw,120px);
+    line-height:0.9;
+    letter-spacing:-5px;
+    font-weight:900;
 }
 
 /* HEADINGS */
@@ -172,21 +334,6 @@ body{
     line-height:1.8;
 }
 
-/* AUSTRALIA SECTION FIXED */
-
-.big-title{
-    text-align:center;
-    font-size:clamp(50px,7vw,120px);
-    line-height:0.9;
-    letter-spacing:-5px;
-    font-weight:900;
-    margin-bottom:20px;
-}
-
-.big-title span{
-    display:block;
-}
-
 /* DEPARTMENTS */
 
 .departments{
@@ -201,6 +348,12 @@ body{
     border-radius:30px;
     background:linear-gradient(180deg,#101826,#09111a);
     border:1px solid rgba(255,255,255,0.06);
+    transition:.35s;
+}
+
+.department:hover{
+    transform:translateY(-6px);
+    border-color:rgba(255,255,255,0.12);
 }
 
 .department-top{
@@ -225,38 +378,21 @@ body{
     line-height:1.8;
 }
 
-/* SLIDER FIXED */
+/* SCREENSHOT SLIDER */
 
 .slider{
     max-width:1100px;
     margin:auto;
     position:relative;
-    margin-top:50px;
+    margin-top:60px;
 }
 
 .slider img{
     width:100%;
-    height:600px;
+    height:620px;
     object-fit:cover;
-    border-radius:25px;
-}
-
-.slider-controls{
-    position:absolute;
-    top:50%;
-    width:100%;
-    display:flex;
-    justify-content:space-between;
-    transform:translateY(-50%);
-}
-
-.slider-btn{
-    background:rgba(0,0,0,0.5);
-    border:1px solid rgba(255,255,255,0.2);
-    color:white;
-    padding:14px 18px;
-    border-radius:12px;
-    cursor:pointer;
+    border-radius:28px;
+    border:1px solid rgba(255,255,255,0.08);
 }
 
 /* END */
@@ -287,6 +423,38 @@ footer{
     font-size:14px;
 }
 
+/* MOBILE */
+
+@media(max-width:900px){
+
+.departments{
+    grid-template-columns:1fr;
+}
+
+.hero-controls{
+    gap:8px;
+}
+
+.thumb{
+    width:52px;
+    height:38px;
+}
+
+.thumb.active{
+    width:74px;
+    height:46px;
+}
+
+.slider img{
+    height:420px;
+}
+
+.hero h1{
+    letter-spacing:-3px;
+}
+
+}
+
 </style>
 
 </head>
@@ -304,29 +472,72 @@ footer{
 
 <section class="hero">
 
-<div>
+    <!-- BACKGROUND IMAGES -->
 
-    <div class="hero-badge">
-        <img src="assets/images/coastline.png">
-        Coastline Group
+    <div class="hero-slider">
+
+        <img class="hero-slide active" src="assets/images/teaser1.png">
+        <img class="hero-slide" src="assets/images/teaser2.png">
+        <img class="hero-slide" src="assets/images/teaser3.png">
+        <img class="hero-slide" src="assets/images/teaser4.png">
+        <img class="hero-slide" src="assets/images/teaser5.png">
+
     </div>
 
-    <h1>
-        SPRINGWOOD <br>
-        <span>NEW SOUTH WALES</span>
-    </h1>
+    <div class="hero-overlay"></div>
 
-    <p>
-        A Roblox experience based on Springwood in the Blue Mountains, built around emergency services, civilian life, and structured roleplay.
-    </p>
+    <div class="fade show">
 
-</div>
+        <div class="hero-badge">
+            <img src="assets/images/coastline.png">
+            Coastline Group
+        </div>
+
+        <h1>
+            SPRINGWOOD <br>
+            <span>NEW SOUTH WALES</span>
+        </h1>
+
+        <p>
+            A Roblox experience based on Springwood in the Blue Mountains, built around emergency services, civilian life, and structured roleplay.
+        </p>
+
+        <div class="hero-actions">
+            <a href="#australia" class="explore-btn">
+                Explore
+            </a>
+        </div>
+
+    </div>
+
+    <!-- CONTROLS -->
+
+    <div class="hero-controls">
+
+        <button class="arrow" onclick="prevHero()">‹</button>
+
+        <img class="thumb active" src="assets/images/teaser1.png" onclick="setHero(0)">
+        <img class="thumb" src="assets/images/teaser2.png" onclick="setHero(1)">
+        <img class="thumb" src="assets/images/teaser3.png" onclick="setHero(2)">
+        <img class="thumb" src="assets/images/teaser4.png" onclick="setHero(3)">
+        <img class="thumb" src="assets/images/teaser5.png" onclick="setHero(4)">
+
+        <button class="arrow" onclick="nextHero()">›</button>
+
+    </div>
+
+    <!-- SCROLL -->
+
+    <div class="scroll-indicator">
+        <div class="mouse"></div>
+        Scroll
+    </div>
 
 </section>
 
-<!-- AUSTRALIA SECTION RESTORED -->
+<!-- AUSTRALIA -->
 
-<section class="section center">
+<section class="section center fade" id="australia">
 
     <div class="big-title">
         DESIGNED TO FEEL<br>
@@ -337,7 +548,7 @@ footer{
 
 <!-- DEPARTMENTS -->
 
-<section class="section">
+<section class="section fade">
 
     <div class="section-heading center">
         <h2>Organisations On Offer</h2>
@@ -382,30 +593,23 @@ footer{
 
 </section>
 
-<!-- SLIDER -->
+<!-- SCREENSHOTS -->
 
-<section class="section center">
+<section class="section center fade">
 
     <div class="section-heading">
         <h2>Early Screenshots</h2>
     </div>
 
     <div class="slider">
-
-        <img id="slideImage" src="assets/images/teaser1.png">
-
-        <div class="slider-controls">
-            <button class="slider-btn" onclick="prevSlide()">‹</button>
-            <button class="slider-btn" onclick="nextSlide()">›</button>
-        </div>
-
+        <img id="mainSlider" src="assets/images/teaser1.png">
     </div>
 
 </section>
 
 <!-- END -->
 
-<section class="end">
+<section class="end fade">
 
     <h2>SPRINGWOOD <br> IS COMING</h2>
     <p>Developed by the Coastline Group</p>
@@ -418,6 +622,12 @@ footer{
 
 <script>
 
+/* HERO SLIDER */
+
+const heroSlides=document.querySelectorAll(".hero-slide");
+const thumbs=document.querySelectorAll(".thumb");
+const mainSlider=document.getElementById("mainSlider");
+
 const images=[
 "assets/images/teaser1.png",
 "assets/images/teaser2.png",
@@ -426,12 +636,59 @@ const images=[
 "assets/images/teaser5.png"
 ];
 
-let i=0;
-const img=document.getElementById("slideImage");
+let current=0;
 
-function show(){ img.src=images[i]; }
-function nextSlide(){ i=(i+1)%images.length; show(); }
-function prevSlide(){ i=(i-1+images.length)%images.length; show(); }
+function updateHero(){
+
+    heroSlides.forEach((slide,index)=>{
+        slide.classList.toggle("active",index===current);
+    });
+
+    thumbs.forEach((thumb,index)=>{
+        thumb.classList.toggle("active",index===current);
+    });
+
+    mainSlider.src=images[current];
+}
+
+function nextHero(){
+    current=(current+1)%images.length;
+    updateHero();
+}
+
+function prevHero(){
+    current=(current-1+images.length)%images.length;
+    updateHero();
+}
+
+function setHero(index){
+    current=index;
+    updateHero();
+}
+
+/* AUTO CYCLE */
+
+setInterval(nextHero,7000);
+
+/* FADE ON SCROLL */
+
+const observer=new IntersectionObserver(entries=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+
+    });
+
+},{
+    threshold:0.15
+});
+
+document.querySelectorAll(".fade").forEach(el=>{
+    observer.observe(el);
+});
 
 </script>
 
