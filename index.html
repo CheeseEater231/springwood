@@ -7,7 +7,7 @@
 
 <title>Coastline Group</title>
 
-<link rel="icon" type="image/png" href="/assets/images/coastline.png">
+<link rel="icon" type="image/png" href="assets/images/coastline.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -301,15 +301,6 @@ body{
     font-weight:900;
 }
 
-.flag-text{
-    background-image:url("/assets/images/australia.png");
-    background-size:cover;
-    background-position:center;
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-}
-
 /* HEADINGS */
 
 .section-heading h2{
@@ -428,12 +419,32 @@ footer{
     grid-template-columns:1fr;
 }
 
+.hero-controls{
+    gap:8px;
+    bottom:90px;
+}
+
+.thumb{
+    width:52px;
+    height:38px;
+}
+
+.thumb.active{
+    width:74px;
+    height:46px;
+}
+
 .slider img{
     height:420px;
 }
 
 .hero h1{
     letter-spacing:-3px;
+}
+
+.discord-btn{
+    top:14px;
+    left:14px;
 }
 
 }
@@ -447,126 +458,133 @@ footer{
 <div class="grid"></div>
 
 <a class="discord-btn" href="https://discord.gg/coastline" target="_blank">
-    <img src="/assets/images/discord.png">
+    <img src="assets/images/discord.png">
     Join Community
 </a>
 
 <section class="hero">
 
-<div class="hero-slider">
-    <img class="hero-slide active" src="/assets/images/teaser1.png">
-    <img class="hero-slide" src="/assets/images/teaser2.png">
-    <img class="hero-slide" src="/assets/images/teaser3.png">
-    <img class="hero-slide" src="/assets/images/teaser4.png">
-    <img class="hero-slide" src="/assets/images/teaser5.png">
-</div>
+    <div class="hero-slider">
 
-<div class="hero-overlay"></div>
+        <img class="hero-slide active" src="assets/images/teaser1.png">
+        <img class="hero-slide" src="assets/images/teaser2.png">
+        <img class="hero-slide" src="assets/images/teaser3.png">
+        <img class="hero-slide" src="assets/images/teaser4.png">
+        <img class="hero-slide" src="assets/images/teaser5.png">
 
-<div class="hero-content fade show">
-
-    <div class="hero-badge">
-        <img src="/assets/images/coastline.png">
-        Coastline Group
     </div>
 
-    <h1>
-        SPRINGWOOD <br>
-        <span>NEW SOUTH WALES</span>
-    </h1>
+    <div class="hero-overlay"></div>
 
-    <p>
-        A Roblox experience in development focused on Australian realism, emergency services, civilian life, and structured roleplay.
-    </p>
+    <div class="hero-content fade show">
 
-</div>
+        <div class="hero-badge">
+            <img src="assets/images/coastline.png">
+            Coastline Group
+        </div>
 
-<div class="hero-controls">
+        <h1>
+            SPRINGWOOD <br>
+            <span>NEW SOUTH WALES</span>
+        </h1>
 
-    <button class="arrow" onclick="prevHero()">‹</button>
+        <p>
+            A Roblox experience in development focused on Australian realism, emergency services, civilian life, and structured roleplay.
+        </p>
 
-    <img class="thumb active" src="/assets/images/teaser1.png" onclick="setHero(0)">
-    <img class="thumb" src="/assets/images/teaser2.png" onclick="setHero(1)">
-    <img class="thumb" src="/assets/images/teaser3.png" onclick="setHero(2)">
-    <img class="thumb" src="/assets/images/teaser4.png" onclick="setHero(3)">
-    <img class="thumb" src="/assets/images/teaser5.png" onclick="setHero(4)">
+    </div>
 
-    <button class="arrow" onclick="nextHero()">›</button>
+    <div class="hero-controls">
 
-</div>
+        <button class="arrow" onclick="prevHero()">‹</button>
+
+        <img class="thumb active" src="assets/images/teaser1.png" onclick="setHero(0)">
+        <img class="thumb" src="assets/images/teaser2.png" onclick="setHero(1)">
+        <img class="thumb" src="assets/images/teaser3.png" onclick="setHero(2)">
+        <img class="thumb" src="assets/images/teaser4.png" onclick="setHero(3)">
+        <img class="thumb" src="assets/images/teaser5.png" onclick="setHero(4)">
+
+        <button class="arrow" onclick="nextHero()">›</button>
+
+    </div>
+
+    <div class="scroll-indicator">
+        <div class="mouse"></div>
+        Scroll
+    </div>
 
 </section>
 
 <section class="section center fade">
 
-<div class="big-title">
-    DESIGNED TO FEEL<br>
-    LIKE <span class="flag-text">AUSTRALIA</span>
-</div>
+    <div class="big-title">
+        DESIGNED TO FEEL<br>
+        LIKE AUSTRALIA
+    </div>
 
 </section>
 
 <section class="section fade">
 
-<div class="section-heading center">
-    <h2>Organisations On Offer</h2>
-    <p>Multiple emergency services with structured roles and progression pathways.</p>
-</div>
-
-<div class="departments">
-
-    <div class="department">
-        <div class="department-top">
-            <img src="/assets/images/nswpf.png">
-            <h4>New South Wales Police Force</h4>
-        </div>
-        <p>Law enforcement, traffic operations, and incident response.</p>
+    <div class="section-heading center">
+        <h2>Organisations On Offer</h2>
+        <p>Multiple emergency services with structured roles and progression pathways.</p>
     </div>
 
-    <div class="department">
-        <div class="department-top">
-            <img src="/assets/images/nswa.png">
-            <h4>New South Wales Ambulance</h4>
-        </div>
-        <p>Emergency medical response and patient care services.</p>
-    </div>
+    <div class="departments">
 
-    <div class="department">
-        <div class="department-top">
-            <img src="/assets/images/frnsw.png">
-            <h4>Fire And Rescue New South Wales</h4>
+        <div class="department">
+            <div class="department-top">
+                <img src="assets/images/nswpf.png">
+                <h4>New South Wales Police Force</h4>
+            </div>
+            <p>Law enforcement, traffic operations, and incident response.</p>
         </div>
-        <p>Fire suppression, rescue operations, and hazard response.</p>
-    </div>
 
-    <div class="department">
-        <div class="department-top">
-            <img src="/assets/images/tnsw.png">
-            <h4>Transport For New South Wales</h4>
+        <div class="department">
+            <div class="department-top">
+                <img src="assets/images/nswa.png">
+                <h4>New South Wales Ambulance</h4>
+            </div>
+            <p>Emergency medical response and patient care services.</p>
         </div>
-        <p>Public transport systems and infrastructure management.</p>
-    </div>
 
-</div>
+        <div class="department">
+            <div class="department-top">
+                <img src="assets/images/frnsw.png">
+                <h4>Fire And Rescue New South Wales</h4>
+            </div>
+            <p>Fire suppression, rescue operations, and hazard response.</p>
+        </div>
+
+        <div class="department">
+            <div class="department-top">
+                <img src="assets/images/tnsw.png">
+                <h4>Transport For New South Wales</h4>
+            </div>
+            <p>Public transport systems and infrastructure management.</p>
+        </div>
+
+    </div>
 
 </section>
 
 <section class="section center fade">
 
-<div class="section-heading">
-    <h2>Early Screenshots</h2>
-</div>
+    <div class="section-heading">
+        <h2>Early Screenshots</h2>
+    </div>
 
-<div class="slider">
-    <img id="mainSlider" src="/assets/images/teaser1.png">
-</div>
+    <div class="slider">
+        <img id="mainSlider" src="assets/images/teaser1.png">
+    </div>
 
 </section>
 
 <section class="end fade">
 
-<h2>SPRINGWOOD <br> IS COMING</h2>
-<p>Developed by the Coastline Group</p>
+    <h2>SPRINGWOOD <br> IS COMING</h2>
+    <p>Developed by the Coastline Group</p>
 
 </section>
 
@@ -581,11 +599,11 @@ const thumbs=document.querySelectorAll(".thumb");
 const mainSlider=document.getElementById("mainSlider");
 
 const images=[
-"/assets/images/teaser1.png",
-"/assets/images/teaser2.png",
-"/assets/images/teaser3.png",
-"/assets/images/teaser4.png",
-"/assets/images/teaser5.png"
+"assets/images/teaser1.png",
+"assets/images/teaser2.png",
+"assets/images/teaser3.png",
+"assets/images/teaser4.png",
+"assets/images/teaser5.png"
 ];
 
 let current=0;
@@ -621,11 +639,15 @@ function setHero(index){
 setInterval(nextHero,7000);
 
 const observer=new IntersectionObserver(entries=>{
+
     entries.forEach(entry=>{
+
         if(entry.isIntersecting){
             entry.target.classList.add("show");
         }
+
     });
+
 },{
     threshold:0.15
 });
@@ -638,3 +660,5 @@ document.querySelectorAll(".fade").forEach(el=>{
 
 </body>
 </html>
+
+
