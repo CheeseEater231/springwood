@@ -291,16 +291,6 @@ body{
     transform:translateY(0);
 }
 
-/* AUSTRALIA */
-
-.big-title{
-    text-align:center;
-    font-size:clamp(50px,7vw,120px);
-    line-height:0.9;
-    letter-spacing:-5px;
-    font-weight:900;
-}
-
 /* HEADINGS */
 
 .section-heading h2{
@@ -328,38 +318,57 @@ body{
 }
 
 .department{
+    position:relative;
+    overflow:hidden;
     padding:42px;
-    border-radius:30px;
+    border-radius:32px;
     background:linear-gradient(180deg,#101826,#09111a);
     border:1px solid rgba(255,255,255,0.06);
     transition:.35s;
 }
 
+.department::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg,rgba(90,176,255,0.08),transparent 55%);
+    opacity:0;
+    transition:.35s;
+}
+
 .department:hover{
-    transform:translateY(-6px);
+    transform:translateY(-8px);
     border-color:rgba(255,255,255,0.12);
 }
 
+.department:hover::before{
+    opacity:1;
+}
+
 .department-top{
+    position:relative;
     display:flex;
     align-items:center;
-    gap:18px;
-    margin-bottom:20px;
+    gap:22px;
+    margin-bottom:24px;
 }
 
 .department-top img{
-    width:70px;
-    height:70px;
+    width:82px;
+    height:82px;
+    object-fit:contain;
 }
 
 .department-top h4{
-    font-size:28px;
+    font-size:30px;
+    line-height:1.05;
 }
 
 .department p{
+    position:relative;
     color:var(--muted);
     font-size:15px;
-    line-height:1.8;
+    line-height:1.9;
 }
 
 /* SCREENSHOT SLIDER */
@@ -447,6 +456,24 @@ footer{
     left:14px;
 }
 
+.department{
+    padding:34px;
+}
+
+.department-top{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.department-top img{
+    width:72px;
+    height:72px;
+}
+
+.department-top h4{
+    font-size:24px;
+}
+
 }
 
 </style>
@@ -515,54 +542,80 @@ footer{
 
 </section>
 
-<section class="section center fade">
-
-    <div class="big-title">
-        DESIGNED TO FEEL<br>
-        LIKE AUSTRALIA
-    </div>
-
-</section>
-
 <section class="section fade">
 
     <div class="section-heading center">
-        <h2>Organisations On Offer</h2>
-        <p>Multiple emergency services with structured roles and progression pathways.</p>
+        <h2>Departments</h2>
+
+        <p>
+            Structured Australian emergency services designed around realism, progression, and immersive roleplay.
+        </p>
     </div>
 
     <div class="departments">
 
         <div class="department">
+
             <div class="department-top">
                 <img src="assets/images/nswpf.png">
-                <h4>New South Wales Police Force</h4>
+
+                <div>
+                    <h4>New South Wales Police Force</h4>
+                </div>
             </div>
-            <p>Law enforcement, traffic operations, and incident response.</p>
+
+            <p>
+                Frontline policing, highway patrol, specialist commands, public order response, and coordinated statewide operations.
+            </p>
+
         </div>
 
         <div class="department">
+
             <div class="department-top">
                 <img src="assets/images/nswa.png">
-                <h4>New South Wales Ambulance</h4>
+
+                <div>
+                    <h4>New South Wales Ambulance</h4>
+                </div>
             </div>
-            <p>Emergency medical response and patient care services.</p>
+
+            <p>
+                Emergency medical response, advanced patient care, dispatch coordination, and large-scale incident support services.
+            </p>
+
         </div>
 
         <div class="department">
+
             <div class="department-top">
                 <img src="assets/images/frnsw.png">
-                <h4>Fire and Rescue New South Wales</h4>
+
+                <div>
+                    <h4>Fire and Rescue NSW</h4>
+                </div>
             </div>
-            <p>Fire suppression, rescue operations, and hazard response.</p>
+
+            <p>
+                Fire suppression, rescue operations, hazardous materials response, and emergency recovery across Springwood.
+            </p>
+
         </div>
 
         <div class="department">
+
             <div class="department-top">
                 <img src="assets/images/tnsw.png">
-                <h4>Transport for New South Wales</h4>
+
+                <div>
+                    <h4>Transport for NSW</h4>
+                </div>
             </div>
-            <p>Public transport systems and infrastructure management.</p>
+
+            <p>
+                Public transport management, traffic coordination, road operations, and statewide infrastructure services.
+            </p>
+
         </div>
 
     </div>
@@ -660,5 +713,3 @@ document.querySelectorAll(".fade").forEach(el=>{
 
 </body>
 </html>
-
-
