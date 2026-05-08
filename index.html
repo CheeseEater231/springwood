@@ -278,7 +278,7 @@ body{
     text-align:center;
 }
 
-/* FADE IN */
+/* FADE */
 
 .fade{
     opacity:0;
@@ -308,15 +308,16 @@ body{
     line-height:1.8;
 }
 
-/* DEPARTMENTS */
+/* DEPARTMENTS (NEW ALTERNATING STYLE) */
 
 .departments{
     display:flex;
     flex-direction:column;
-    gap:40px;
+    gap:50px;
     margin-top:90px;
 }
 
+/* CARD BASE */
 .department{
     width:100%;
     min-height:420px;
@@ -327,19 +328,9 @@ body{
     border-radius:36px;
     background:linear-gradient(135deg,#101826,#09111a);
     border:1px solid rgba(255,255,255,0.07);
-    overflow:hidden;
+    transition:.35s;
     position:relative;
-    transition:.35s;
-}
-
-.department::before{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:
-    radial-gradient(circle at left, rgba(90,176,255,0.12), transparent 55%);
-    opacity:0;
-    transition:.35s;
+    overflow:hidden;
 }
 
 .department:hover{
@@ -347,30 +338,21 @@ body{
     border-color:rgba(255,255,255,0.12);
 }
 
-.department:hover::before{
-    opacity:1;
-}
-
+/* LOGO SIDE */
 .department-logo{
     width:320px;
+    flex-shrink:0;
     display:flex;
     justify-content:center;
-    align-items:center;
-    flex-shrink:0;
 }
 
 .department-logo img{
     width:100%;
     max-width:260px;
     object-fit:contain;
-    filter:drop-shadow(0 0 30px rgba(255,255,255,0.08));
 }
 
-.department-info{
-    position:relative;
-    z-index:2;
-}
-
+/* TEXT */
 .department-info h3{
     font-size:clamp(42px,4vw,78px);
     line-height:0.95;
@@ -385,7 +367,12 @@ body{
     line-height:1.9;
 }
 
-/* SCREENSHOT SLIDER */
+/* ALTERNATING LAYOUT */
+.department:nth-child(even){
+    flex-direction:row-reverse;
+}
+
+/* SCREENSHOT */
 
 .slider{
     max-width:1100px;
@@ -434,44 +421,10 @@ footer{
 
 @media(max-width:900px){
 
-.hero{
-    padding:140px 6% 220px;
-}
-
-.hero-controls{
-    gap:8px;
-    bottom:90px;
-}
-
-.thumb{
-    width:52px;
-    height:38px;
-}
-
-.thumb.active{
-    width:74px;
-    height:46px;
-}
-
-.slider img{
-    height:420px;
-}
-
-.hero h1{
-    letter-spacing:-3px;
-}
-
-.discord-btn{
-    top:14px;
-    left:14px;
-}
-
 .department{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:40px;
+    flex-direction:column !important;
     padding:42px;
-    min-height:auto;
+    gap:40px;
 }
 
 .department-logo{
@@ -480,14 +433,6 @@ footer{
 
 .department-logo img{
     max-width:160px;
-}
-
-.department-info h3{
-    font-size:42px;
-}
-
-.department-info p{
-    font-size:16px;
 }
 
 }
@@ -508,13 +453,11 @@ footer{
 <section class="hero">
 
     <div class="hero-slider">
-
         <img class="hero-slide active" src="assets/images/teaser1.png">
         <img class="hero-slide" src="assets/images/teaser2.png">
         <img class="hero-slide" src="assets/images/teaser3.png">
         <img class="hero-slide" src="assets/images/teaser4.png">
         <img class="hero-slide" src="assets/images/teaser5.png">
-
     </div>
 
     <div class="hero-overlay"></div>
@@ -526,34 +469,10 @@ footer{
             Coastline Group
         </div>
 
-        <h1>
-            SPRINGWOOD <br>
-            <span>NEW SOUTH WALES</span>
-        </h1>
+        <h1>SPRINGWOOD <br><span>NEW SOUTH WALES</span></h1>
 
-        <p>
-            A Roblox experience in development focused on Australian realism, emergency services, civilian life, and structured roleplay.
-        </p>
+        <p>A Roblox experience in development focused on Australian realism, emergency services, civilian life, and structured roleplay.</p>
 
-    </div>
-
-    <div class="hero-controls">
-
-        <button class="arrow" onclick="prevHero()">‹</button>
-
-        <img class="thumb active" src="assets/images/teaser1.png" onclick="setHero(0)">
-        <img class="thumb" src="assets/images/teaser2.png" onclick="setHero(1)">
-        <img class="thumb" src="assets/images/teaser3.png" onclick="setHero(2)">
-        <img class="thumb" src="assets/images/teaser4.png" onclick="setHero(3)">
-        <img class="thumb" src="assets/images/teaser5.png" onclick="setHero(4)">
-
-        <button class="arrow" onclick="nextHero()">›</button>
-
-    </div>
-
-    <div class="scroll-indicator">
-        <div class="mouse"></div>
-        Scroll
     </div>
 
 </section>
@@ -562,84 +481,41 @@ footer{
 
     <div class="section-heading center">
         <h2>Departments</h2>
-
-        <p>
-            Structured Australian emergency services designed around realism and immersive roleplay.
-        </p>
+        <p>Structured Australian emergency services designed around realism and immersive roleplay.</p>
     </div>
 
     <div class="departments">
 
         <div class="department">
-
-            <div class="department-logo">
-                <img src="assets/images/nswpf.png">
-            </div>
-
+            <div class="department-logo"><img src="assets/images/nswpf.png"></div>
             <div class="department-info">
-
                 <h3>New South Wales Police Force</h3>
-
-                <p>
-                    Frontline policing, highway patrol, specialist commands, tactical response, public order management, and coordinated statewide operations throughout Springwood.
-                </p>
-
+                <p>Frontline policing, highway patrol, specialist commands, tactical response and coordinated statewide operations.</p>
             </div>
-
         </div>
 
         <div class="department">
-
-            <div class="department-logo">
-                <img src="assets/images/nswa.png">
-            </div>
-
+            <div class="department-logo"><img src="assets/images/nswa.png"></div>
             <div class="department-info">
-
                 <h3>New South Wales Ambulance</h3>
-
-                <p>
-                    Emergency medical response, advanced patient treatment, dispatch coordination, and large-scale incident support across the region.
-                </p>
-
+                <p>Emergency medical response, patient care, dispatch coordination and large-scale incident support.</p>
             </div>
-
         </div>
 
         <div class="department">
-
-            <div class="department-logo">
-                <img src="assets/images/frnsw.png">
-            </div>
-
+            <div class="department-logo"><img src="assets/images/frnsw.png"></div>
             <div class="department-info">
-
                 <h3>Fire and Rescue NSW</h3>
-
-                <p>
-                    Fire suppression, rescue operations, hazardous materials response, and emergency recovery services operating across Springwood.
-                </p>
-
+                <p>Fire suppression, rescue operations, hazardous materials response and emergency recovery services.</p>
             </div>
-
         </div>
 
         <div class="department">
-
-            <div class="department-logo">
-                <img src="assets/images/tnsw.png">
-            </div>
-
+            <div class="department-logo"><img src="assets/images/tnsw.png"></div>
             <div class="department-info">
-
                 <h3>Transport for NSW</h3>
-
-                <p>
-                    Public transport coordination, traffic operations, infrastructure management, and statewide transport services.
-                </p>
-
+                <p>Public transport systems, traffic operations, infrastructure management and statewide transport services.</p>
             </div>
-
         </div>
 
     </div>
@@ -647,7 +523,6 @@ footer{
 </section>
 
 <section class="section center fade">
-
     <div class="section-heading">
         <h2>Early Screenshots</h2>
     </div>
@@ -655,22 +530,16 @@ footer{
     <div class="slider">
         <img id="mainSlider" src="assets/images/teaser1.png">
     </div>
-
 </section>
 
 <section class="end fade">
-
     <h2>SPRINGWOOD <br> IS COMING...</h2>
     <p>Developed by the Coastline Group.</p>
-
 </section>
 
-<footer>
-© 2026 Coastline Group
-</footer>
+<footer>© 2026 Coastline Group</footer>
 
 <script>
-
 const heroSlides=document.querySelectorAll(".hero-slide");
 const thumbs=document.querySelectorAll(".thumb");
 const mainSlider=document.getElementById("mainSlider");
@@ -686,53 +555,26 @@ const images=[
 let current=0;
 
 function updateHero(){
-
-    heroSlides.forEach((slide,index)=>{
-        slide.classList.toggle("active",index===current);
-    });
-
-    thumbs.forEach((thumb,index)=>{
-        thumb.classList.toggle("active",index===current);
-    });
-
-    mainSlider.src=images[current];
+heroSlides.forEach((s,i)=>s.classList.toggle("active",i===current));
+if(thumbs.length){
+thumbs.forEach((t,i)=>t.classList.toggle("active",i===current));
+}
+if(mainSlider) mainSlider.src=images[current];
 }
 
-function nextHero(){
-    current=(current+1)%images.length;
-    updateHero();
-}
-
-function prevHero(){
-    current=(current-1+images.length)%images.length;
-    updateHero();
-}
-
-function setHero(index){
-    current=index;
-    updateHero();
-}
+function nextHero(){current=(current+1)%images.length;updateHero();}
+function prevHero(){current=(current-1+images.length)%images.length;updateHero();}
+function setHero(i){current=i;updateHero();}
 
 setInterval(nextHero,7000);
 
 const observer=new IntersectionObserver(entries=>{
-
-    entries.forEach(entry=>{
-
-        if(entry.isIntersecting){
-            entry.target.classList.add("show");
-        }
-
-    });
-
-},{
-    threshold:0.15
+entries.forEach(e=>{
+if(e.isIntersecting)e.target.classList.add("show");
 });
+},{threshold:0.15});
 
-document.querySelectorAll(".fade").forEach(el=>{
-    observer.observe(el);
-});
-
+document.querySelectorAll(".fade").forEach(el=>observer.observe(el));
 </script>
 
 </body>
